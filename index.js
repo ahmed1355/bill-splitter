@@ -3,7 +3,7 @@ const tipPerPerson = document.getElementById("tip-amount");
 const totalPerPerson = document.getElementById("total-amount");
 const tips = document.querySelectorAll(".box");
 const genbill = document.querySelector(".gen");
-// const disabled=document.querySelector(".disabled")
+
 
 billInput.addEventListener("input", billInputfun);
 genbill.addEventListener("click", genbillfun);
@@ -15,7 +15,7 @@ billInput.value = "0";
 
 function billInputfun() {
   billValue = parseFloat(billInput.value);
-  genbillfun(); 
+  
 }
 
 
@@ -34,11 +34,12 @@ function handleclick(event) {
         tipValue = parseFloat(val.innerHTML) / 100;
     }
 });
-// genbillfun();    
+
 }
 function genbillfun() {
 
 if (billInput.value !== "0" && count > 0 ) {
+
     let tipAmount = (billValue + tipValue) / count;
     let total = (billValue * tipAmount) / count;
     tipPerPerson.innerHTML = "₹" + tipAmount.toFixed(2);
@@ -65,8 +66,7 @@ reset.addEventListener("click", function () {
   if (count < 0 || count > 0) {
     count = 0;
   }
-//   billInput.value='0.0'
-// billInputfun()
+
 counter.innerHTML = count;
 billInput.value = count;
   totalPerPerson.innerHTML='₹0.00';
